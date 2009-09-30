@@ -1,0 +1,54 @@
+ActsAsPrivilege
+===============
+
+"Acts as" extension which provides the capabilities to restrict system access to authorized users.  This ACL-based security model is designed as a role-based access control, where each role can be a group of users.
+
+
+Install
+=======
+
+To install as a plugin:
+
+  script/plugin install git://github.com/cyril/acts_as_privilege.git
+
+Generate and apply the migration:
+
+  script/generate acts_as_privilege model
+  rake db:migrate
+
+Then you can populate Ability and Entity models using something like that:
+
+  rest_actions = %w[index show new create edit update destroy]
+  controllers = {
+    :groups => rest_actions,
+    :users => rest_actions,
+    :articles => rest_actions,
+    :comments => rest_actions }
+
+  controllers.each_pair do |controller, actions|
+    entity = Entity.create(:name => controller.to_s)
+    actions.each do |action|
+      Ability.create(:name => action, :entity_id => entity.id)
+    end
+  end
+
+
+Example
+=======
+
+  script/generate acts_as_privilege Group
+  rake db:migrate
+
+  class Group < ActiveRecord::Base
+    acts_as_privilege
+    has_many :users
+  end
+
+  # Check the current user capability to destroy articles:
+  current_user.group.has_privilege?('articles', 'destroy')
+
+  # Form helper that generate field to manage group privileges:
+  <%= privileges_field(@group, :group) %>
+
+
+Copyright (c) 2009 Cyril Wack, released under the MIT license
