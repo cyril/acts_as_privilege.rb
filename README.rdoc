@@ -4,6 +4,10 @@
 
 == Install
 
+To install as a gem (recommended):
+
+  sudo gem install acts_as_privilege
+
 To install as a plugin:
 
   script/plugin install git://github.com/cyril/acts_as_privilege.git
