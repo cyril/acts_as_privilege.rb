@@ -1,11 +1,8 @@
-ActsAsPrivilege
-===============
+= Acts as privilege
 
 "Acts as" extension which provides the capabilities to restrict system access to authorized users.  This ACL-based security model is designed as a role-based access control, where each role can be a group of users.
 
-
-Install
-=======
+== Install
 
 To install as a plugin:
 
@@ -32,9 +29,7 @@ Then you can populate Ability and Entity models using something like that:
     end
   end
 
-
-Example
-=======
+== Example
 
   script/generate acts_as_privilege Group
   rake db:migrate
@@ -49,6 +44,5 @@ Example
 
   # Form helper that generate field to manage group privileges:
   <%= privileges_field(@group, :group) %>
-
 
 Copyright (c) 2009 Cyril Wack, released under the MIT license
