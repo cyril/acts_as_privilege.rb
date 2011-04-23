@@ -1,0 +1,5 @@
+ja:
+  acts_as_privilege:
+    fieldset:
+      legend: "特典"
+      privilege_ids: "特典のリスト"

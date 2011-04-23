@@ -1,0 +1,16 @@
+Description:
+    Creates a Privilege model, and then links it with any other models that your
+    application might need.
+
+Usage:
+    Pass the name of models that you want to apply privileges.
+
+Examples:
+    `rails generate privileges role`
+
+        Will expand roles with privileges.  Then you can manage user roles and
+        attributed privileges for each one.
+
+    `rails generate privileges group user`
+
+        Same, with Group and User models.

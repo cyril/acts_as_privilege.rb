@@ -1,0 +1,5 @@
+en:
+  acts_as_privilege:
+    fieldset:
+      legend: "Privileges"
+      privilege_ids: "Privileges listing"

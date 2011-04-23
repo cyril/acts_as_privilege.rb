@@ -1,0 +1,7 @@
+<%= content_tag(:fieldset, :id => "#{f.object.class.name}_privileges") do %>
+  <%= content_tag(:legend, t('.legend')) %>
+
+  <%= label f.object.class.name, :privilege_ids, t('.privilege_ids') %><br />
+  <%= collection_select(f.object.class.name.tableize.singularize,
+    :privilege_ids, Privilege.all, :id, :route, {}, :multiple => true) %>
+<% end %>

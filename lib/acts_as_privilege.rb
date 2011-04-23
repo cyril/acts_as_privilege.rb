@@ -1,31 +1,25 @@
-require 'active_record/base'
-
 module ActsAsPrivilege
-  def self.included(base)
-    base.extend(ClassMethods)
+  def privilege?(route)
+    privileges.exists?(:route => route.to_s)
   end
 
-  module ClassMethods
-    def acts_as_privilege
-      has_and_belongs_to_many :abilities
+  def has_privilege?(controller, action)
+    ActiveSupport::Deprecation.warn 'has_privilege?(controller, action) ' +
+      'is deprecated and may be removed from future releases, ' +
+      'use privilege?(route) instead.'
 
-      class_eval <<-EOV
-        include ActsAsPrivilege::InstanceMethods
-      EOV
-    end
+    privilege? [controller, action].join('#')
   end
 
-  module InstanceMethods
-    def has_privilege?(controller, action)
-      self.abilities.each do |ability|
-        if ability.name == action
-          return true if ability.entity.name == controller
-        end
-      end
-      false
-    end
+  def mass_assignment_authorizer
+    super + [:privilege_ids]
   end
 end
 
-ActiveRecord::Base.class_eval { include ActsAsPrivilege }
-ActionController::Base.helper PrivilegesHelper
+class ActiveRecord::Base
+  def self.acts_as_privilege
+    has_and_belongs_to_many :privileges
+
+    include ActsAsPrivilege
+  end
+end
