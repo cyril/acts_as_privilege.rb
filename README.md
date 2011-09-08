@@ -1,4 +1,4 @@
-Acts as privilege
+Acts as privilege ![travis-ci](https://secure.travis-ci.org/cyril/acts_as_privilege.png)
 =================
 
 Acts as privilege is a plugin for Ruby on Rails that provides the capabilities
