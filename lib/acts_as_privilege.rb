@@ -10,15 +10,12 @@ module ActsAsPrivilege
 
     privilege? [controller, action].join('#')
   end
-
-  def mass_assignment_authorizer
-    super + [:privilege_ids]
-  end
 end
 
 class ActiveRecord::Base
   def self.acts_as_privilege
     has_and_belongs_to_many :privileges
+    attr_accessible :privilege_ids
 
     include ActsAsPrivilege
   end
