@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Cyril Wack"]
   s.email       = ["contact@cyril.io"]
-  s.homepage    = "http://github.com/cyril/acts_as_privilege"
+  s.homepage    = "https://github.com/cyril/acts_as_privilege.rb"
   s.summary     = %q{Simple privilege solution for Rails.}
   s.description = %q{Simple Rails plugin to restrict system access to authorized users.}
 
