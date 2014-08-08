@@ -1,5 +1,10 @@
-Acts as privilege ![travis-ci](https://secure.travis-ci.org/cyril/acts_as_privilege.png)
-=================
+# Acts as privilege
+
+* * *
+
+**This gem is outdated.  Please do not use it.**
+
+* * *
 
 Acts as privilege is a plugin for Ruby on Rails that provides the capabilities
 to restrict controller actions to privileged resources.
@@ -7,13 +12,17 @@ to restrict controller actions to privileged resources.
 This ACL-based security model is designed as a role-based access control, where
 each role can be a group of users.
 
-Philosophy
-----------
+## Status
+
+[![Gem Version](https://badge.fury.io/rb/acts_as_privilege.png)](http://badge.fury.io/rb/acts_as_privilege)
+[![Build Status](https://api.travis-ci.org/cyril/acts_as_privilege.rb.png?branch=master)](http://travis-ci.org/cyril/acts_as_privilege?branch=master)
+![](https://ruby-gem-downloads-badge.herokuapp.com/acts_as_privilege?type=total)
+
+## Philosophy
 
 General library that does only one thing, without any feature.
 
-Installation
-------------
+## Installation
 
 Include the gem in your `Gemfile`:
 
@@ -47,8 +56,7 @@ Privilege.transaction do
 end
 ```
 
-Example
--------
+## Example
 
 First, let's run commands:
 
